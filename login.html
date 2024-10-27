@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <link rel="stylesheet" href="CSS/login.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<title>Login and Signup</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 mx-auto">
+        <!-- Login Form -->
+        <div id="loginForm" class="myform form">
+          <div class="logo mb-3">
+            <div class="col-md-12 text-center">
+              <h1>Login</h1>
+            </div>
+          </div>
+          <form method="post" action="process.php">
+            <input type="hidden" name="form_type" value="login">
+            <div class="form-group">
+              <label for="loginEmail">Email address</label>
+              <input type="email" name="email" class="form-control" id="loginEmail" placeholder="Enter email" required>
+            </div>
+            <div class="form-group">
+              <label for="loginPassword">Password</label>
+              <input type="password" name="password" class="form-control" id="loginPassword" placeholder="Enter Password" required>
+            </div>
+            <div class="col-md-12 text-center">
+              <button type="submit" class="btn btn-block mybtn btn-primary tx-tfm">Login</button>
+            </div>
+            <div class="form-group text-center">
+              <p>Don't have an account? <a href="javascript:void(0);" id="showSignup">Sign up here</a></p>
+            </div>
+          </form>
+        </div>
+
+        <!-- Signup Form -->
+        <div id="signupForm" class="myform form" style="display: none;">
+          <div class="logo mb-3">
+            <div class="col-md-12 text-center">
+              <h1>Signup</h1>
+            </div>
+          </div>
+          <form method="post" action="process.php">
+            <input type="hidden" name="form_type" value="signup">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" name="firstname" class="form-control" id="firstName" placeholder="Enter First Name" required>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" name="lastname" class="form-control" id="lastName" placeholder="Enter Last Name" required>
+            </div>
+            <div class="form-group">
+              <label for="signupEmail">Email address</label>
+              <input type="email" name="email" class="form-control" id="signupEmail" placeholder="Enter Email" required>
+            </div>
+            <div class="form-group">
+              <label for="signupPassword">Password</label>
+              <input type="password" name="password" class="form-control" id="signupPassword" placeholder="Enter Password" required>
+            </div>
+            <div class="form-group">
+              <label for="confirmPassword">Confirm Password</label>
+              <input type="password" name="confirm_password" class="form-control" id="confirmPassword" placeholder="Confirm Password" required>
+            </div>
+            <div class="col-md-12 text-center">
+              <button type="submit" class="btn btn-block mybtn btn-primary">Signup</button>
+            </div>
+            <div class="form-group text-center">
+              <p>Already have an account? <a href="javascript:void(0);" id="showLogin">Login here</a></p>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Script to toggle between login and signup forms -->
+  <script>
+    $('#showSignup').click(function() {
+      $('#loginForm').hide();
+      $('#signupForm').show();
+    });
+    
+    $('#showLogin').click(function() {
+      $('#signupForm').hide();
+      $('#loginForm').show();
+    });
+  </script>
+</body>
+</html>
